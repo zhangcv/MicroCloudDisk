@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,7 @@ public class mainController {
         diskUser user = (diskUser) session.getAttribute("diskuser");
         if (user.getUsermail() != null) {
             List<folder> folderlist = mainservice.folderQuery(user.getUsermail(), user.getUsermail());
+            System.out.println(folderlist);
             List<logs> logsList = mainservice.logsQuery(user.getUsermail());
             model.addAttribute("logsList", logsList);
             model.addAttribute("folderlist", folderlist);
@@ -60,8 +62,8 @@ public class mainController {
 //        user.setUsermail("1393203396@qq.com");
 //        System.out.println("sss" + user.getUsermail());
 //        System.out.println("Controller : main() : session " + user.getUsermail());
-        List<folder> folderlist = mainservice.folderQuery("1393203396@qq.com", "1393203396@qq.com");
-        List<logs> logsList = mainservice.logsQuery("1393203396@qq.com");
+        List<folder> folderlist = mainservice.folderQuery("zhangcv2017@163.com", "zhangcv2017@163.com");
+        List<logs> logsList = mainservice.logsQuery("zhangcv2017@163.com");
         model.addAttribute("logsList", logsList);
         model.addAttribute("folderlist", folderlist);
         return "main";
@@ -229,8 +231,8 @@ public class mainController {
 
         folder folder = new folder();
         for (String s : fileLists) {
-//            folder = mainservice.folderQueryById(s);
-//            mainservice.trashInsert(folder);
+            folder = mainservice.folderQueryById(s);
+            mainservice.trashInsert(folder);
             mainservice.deleteFileById(s);
         }
         return "redirect:main";
@@ -240,8 +242,8 @@ public class mainController {
     @RequestMapping(value = "/deleteOneFolder")
     public String deleteOneFolder(HttpServletRequest request) throws IOException {
         String fileid = request.getParameter("OnefileId");
-//        folder folder = mainservice.folderQueryById(fileid);
-//        mainservice.trashInsert(folder);
+        folder folder = mainservice.folderQueryById(fileid);
+        mainservice.trashInsert(folder);
         String filepath = mainservice.folderQueryByidone(fileid);
         File file = new File("");
         filepath = file.getCanonicalPath() + File.separator + filepath;
@@ -294,11 +296,20 @@ public class mainController {
             return "login";
         }
     }
+    @RequestMapping("/userTest")
+    @ResponseBody
+    public List<folder> userTest(HttpSession session, Model model) {
+        List<folder> folders = mainservice.TreeFolderfileparent("zhangcv2017@163.com\\测试", "zhangcv2017@163.com");
+        for (folder folder : folders) {
 
+        }
+        int i = mainservice.TreeFolderfileUpdate("zhangcv2017@163.com\\测试\\Test4", "zhangcv2017@163.com");
+        System.out.println(i);
+        return folders;
+    }
 
     @RequestMapping("/userCenter")
     public String userCenter(HttpSession session, Model model) {
-
         return "userCenter";
     }
 
@@ -313,5 +324,14 @@ public class mainController {
         return "main";
     }
 
+    @RequestMapping(value = "/TreeFolder")
+    public String TreeFolder(HttpServletRequest request, HttpSession session, Model model) {
+        diskUser user = (diskUser) session.getAttribute("diskuser");
+        System.out.println("Move controller " + user.getUsermail());
+        List<folder> filelists = mainservice.folderQuery(user.getUsermail(),user.getUsermail());
+        System.out.println(filelists);
+        model.addAttribute("folderlist", filelists);
+        return "main";
+    }
 
 }

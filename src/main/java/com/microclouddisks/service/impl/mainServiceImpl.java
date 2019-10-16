@@ -55,6 +55,17 @@ public class mainServiceImpl implements mainService {
     }
 
     @Override
+    public List<folder> TreeFolderfileparent(String parent,String usermail) {
+
+        return maindao.TreeFolderfileparent(parent,usermail);
+    }
+
+    @Override
+    public int TreeFolderfileUpdate(String filepath, String parent) {
+        return maindao.TreeFolderfileUpdate(filepath,parent);
+    }
+
+    @Override
     public List<folder> likeQueryByFileName(String foldername, String usermail) {
         return maindao.likeQueryByFileName(foldername, usermail);
     }

@@ -3,12 +3,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.microclouddisks.dao.mainDao">
 
-    <select id="folderQuery" resultType="folder">
+    <select id="folderQuery" resultType="com.microclouddisks.entity.folder">
         select * from folder
         where usermail=#{usermail} and parent=#{parent}
     </select>
 
-    <select id="folderQueryById" resultType="folder">
+    <select id="folderQueryById" resultType="com.microclouddisks.entity.folder">
         select * from folder
         where folderid=#{folderid}
     </select>
@@ -18,13 +18,13 @@
         where folderid=#{folderid}
     </select>
 
-    <insert id="folderInsert" parameterType="folder">
+    <insert id="folderInsert" parameterType="com.microclouddisks.entity.folder">
         insert into
         folder(folderid,foldername,usermail,updatetime,sizes,filetype,parent,num,filepath,icon)
         value(#{folderid},#{foldername},#{usermail},#{updatetime},#{sizes},#{filetype},#{parent},#{num},#{filepath},#{icon})
     </insert>
 
-    <delete id="deleteFolder" parameterType="folder">
+    <delete id="deleteFolder" parameterType="com.microclouddisks.entity.folder">
         delete from folder
         where usermail=#{usermail} and foldername=#{foldername} and parent=#{parent}
     </delete>
@@ -39,11 +39,14 @@
         set userusedspace=#{spacesize}
         where usermail=#{usermail}
     </update>
+    <update id="TreeFolderfileUpdate">
+        update folder
+        SET parent=#{parent}
+        where usermail='zhangcv2017@163.com' and filepath=#{filepath}
+    </update>
 
-    <insert id="trashInsert" parameterType="folder">
-        insert into
-        folder(folderid,foldername,usermail,updatetime,sizes,filetype,parent,num,filepath,icon)
-        trash(folderid,foldername,usermail,updatetime,sizes,filetype,parent,num,filepath,icon)
+    <insert id="trashInsert" parameterType="com.microclouddisks.entity.folder">
+        insert into trash(folderid,foldername,usermail,updatetime,sizes,filetype,parent,num,filepath,icon)
         value(#{folderid},#{foldername},#{usermail},#{updatetime},#{sizes},#{filetype},#{parent},#{num},#{filepath},#{icon})
     </insert>
 
@@ -52,7 +55,7 @@
         where folderid=#{folderid}
     </delete>
 
-    <select id="likeQueryByFileName" resultType="folder">
+    <select id="likeQueryByFileName" resultType="com.microclouddisks.entity.folder">
         select * from folder
         where usermail=#{usermail}
         <if test="#{foldername !=null}">
@@ -60,15 +63,24 @@
         </if>
     </select>
 
-    <insert id="logInsert" parameterType="logs">
+    <insert id="logInsert" parameterType="com.microclouddisks.entity.logs">
         insert into
         logs(logid,logtype,logtime,logcontent,usermail,sizes,filename,fileicon)
         value (#{logid},#{logtype},#{logtime},#{logcontent},#{usermail},#{sizes},#{filename},#{fileicon})
     </insert>
 
-    <select id="logsQuery" resultType="logs">
+    <select id="logsQuery" resultType="com.microclouddisks.entity.logs">
         select * from logs
         where usermail=#{usermail}
+    </select>
+
+    <select id="TreeFolderfileparent" resultType="folder">
+        select * from folder
+        where usermail=#{usermail}
+        <if test="#{parent !=null}">
+            and parent = #{parent}
+        </if>
+        and filetype='folder'
     </select>
 
 </mapper>

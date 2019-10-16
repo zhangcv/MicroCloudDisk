@@ -29,6 +29,10 @@ public interface mainService {
     //根据folderid删除
     int deleteFileById(String folderid);
 
+    //移动文件时查询 文件夹下的文件夹
+    List<folder> TreeFolderfileparent(String parent,String usermail);
+    //更新文件夹的父目录为什么文件夹
+    int TreeFolderfileUpdate(String filepath,String parent);
 
     //模糊查询
     List<folder> likeQueryByFileName(String foldername, String usermail);

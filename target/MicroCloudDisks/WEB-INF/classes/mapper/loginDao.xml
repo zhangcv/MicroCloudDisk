@@ -3,13 +3,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.microclouddisks.dao.loginDao">
 
-<select id="loginQuery" resultType="diskUser">
+<select id="loginQuery" resultType="com.microclouddisks.entity.diskUser">
         select *
         from diskUser
         where usermail=#{usermail} and userpassword=#{userpassword}
     </select>
 
-<insert id="registerInsert" parameterType="diskUser">
+<insert id="registerInsert" parameterType="com.microclouddisks.entity.diskUser">
         insert into diskUser (usermail,username,userpassword)
         value (#{usermail},#{username},#{userpassword})
     </insert>

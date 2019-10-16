@@ -18,7 +18,7 @@ public class sendMail {
     // PS: 某些邮箱服务器为了增加邮箱本身密码的安全性，给 SMTP 客户端设置了独立密码（有的邮箱称为“授权码”）,
     // 对于开启了独立密码的邮箱, 这里的邮箱密码必需使用这个独立密码（授权码）。
     public static String myEmailAccount = "zhangcv2017@163.com";
-    public static String myEmailPassword = "mprestartgame1";
+    public static String myEmailPassword = "***********";
 
     public static String codes;
 
@@ -27,7 +27,7 @@ public class sendMail {
     public static String myEmailSMTPHost = "smtp.163.com";
 
     // 收件人邮箱（替换为自己知道的有效邮箱）
-    // public static String receiveMailAccount = "1393203396@qq.com";
+    // public static String receiveMailAccount = "zhangcv2017@163.com";
 
     public static boolean sendmail(String number, String receiveMailAccount) {
         codes = number;

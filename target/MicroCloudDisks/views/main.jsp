@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/4/13
-  Time: 16:44
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -93,10 +86,12 @@
         <div class="main-head-right-user">
             <div class="main-head-right-user-left">
                 <div class="main-head-right-user-left-iocn">
-                    <a href=""><img src="img/gaoqinglogo.jpg" style="margin: 12px 12px;"></a>
+                    <a href=""><img src="img/gaoqinglogo.jpg"
+                                    style="margin: 12px 12px;"></a>
                 </div>
                 <div class="main-head-right-user-left-username">
-                    <a href="" style="margin: 12px 2px;line-height: 65px;font-size: 16px;text-decoration: none;">
+                    <a href=""
+                       style="margin: 12px 2px;line-height: 65px;font-size: 16px;text-decoration: none;">
                         ${diskuser.username}
                     </a>
                 </div>
@@ -156,7 +151,8 @@
     </div>
     <div style="width: 100%;height: 10px; background-color: #eff4f8;"></div>
     <div class="main-left-bottom">
-        <div class="progress" style="margin-right: 20px;height: 12px;margin-bottom: 5px;margin-left: 15px;">
+        <div class="progress"
+             style="margin-right: 20px;height: 12px;margin-bottom: 5px;margin-left: 15px;">
             <div class="progress-bar progress-bar-success" role="progressbar"
                  aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                  style="width: 20%;">
@@ -173,29 +169,38 @@
 <div class="main-right-head">
     <div class="main-right-head-top">
         <div class="main-right-head-top-left">
-            <button data-toggle="modal" data-target="#myModal" type="button" class="btn btn-info"
+            <button data-toggle="modal" data-target="#myModal" type="button"
+                    class="btn btn-info"
                     style="margin-left: 13px; margin-right: 10px;">上传文件
             </button>
-            <button data-toggle="modal" data-target="#createFolder" type="button" class="btn btn-default"
+            <button data-toggle="modal" data-target="#createFolder"
+                    type="button" class="btn btn-default"
                     style="margin: 8px 10px;">新建文件夹
             </button>
-            <button data-toggle="modal" data-target="#deleteFolder" type="button" class="btn btn-default"
+            <button data-toggle="modal" data-target="#deleteFolder"
+                    type="button" class="btn btn-default"
                     style="margin: 8px 10px;">删除文件
             </button>
-            <button data-toggle="modal" data-target="#alldownload" type="button" class="btn btn-default"
+            <button data-toggle="modal" data-target="#alldownload" type="button"
+                    class="btn btn-default"
                     style="margin: 8px 10px;">我的日志
             </button>
-            <button type="button" class="btn btn-default" style="margin: 8px 10px;">下载历史</button>
+            <button type="button" class="btn btn-default"
+                    style="margin: 8px 10px;">下载历史
+            </button>
         </div>
-        <form action="SearchFile" method="post" style="margin: 0px;padding: 0px;">
+        <form action="SearchFile" method="post"
+              style="margin: 0px;padding: 0px;">
             <div class="main-right-head-top-right">
                 <div class="form-group" style="float: left;">
-                    <input name="searchFileName" type="text" class="form-control"
+                    <input name="searchFileName" type="text"
+                           class="form-control"
                            style="margin: 8px 8px ; width: 261px;height: 35px;"
                            placeholder="Search Files">
                 </div>
                 <div style="width: 5000px;height: 51px;;">
-                    <button type="submit" class="btn btn-default" style="margin: 8px 8px ; width: 84px;height: 35px;">
+                    <button type="submit" class="btn btn-default"
+                            style="margin: 8px 8px ; width: 84px;height: 35px;">
                         <i class="glyphicon glyphicon-search"></i> 搜 索
                     </button>
                 </div>
@@ -206,17 +211,21 @@
 
 
 <!-- 文件上传模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 720px;height: 300px;">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">
                     &times;
                 </button>
-                <h4 class="modal-title" id="myModalLabel" style="display: inline-block">
+                <h4 class="modal-title" id="myModalLabel"
+                    style="display: inline-block">
                     文件上传
                 </h4>
-                <h5 style="display: inline-block">( 小提示 : 将多个文件压缩成一个压缩文件上传速度更快哦 ! )</h5>
+                <h5 style="display: inline-block">( 小提示 : 将多个文件压缩成一个压缩文件上传速度更快哦
+                    ! )</h5>
             </div>
             <%--<form action="uploads" enctype="multipart/form-data" method="post" id="uploadfilesForm"--%>
             <%--style="display: inline-block;">--%>
@@ -227,34 +236,41 @@
                     <%--<input class="form-control" type="file" id="batchFile">--%>
 
                     <%--upload_file--%>
-                    <input type="file" class="form-control" name="file" id="batchFile" style="display:none;"
+                    <input type="file" class="form-control" name="file"
+                           id="batchFile" style="display:none;"
                     <%--multiple="multiple"--%>
                            onchange="change();"/>
                     <input type="text" class="form-control"
-                           style="width: 460px;height: 36px;margin: 2px 0px;display: inline-block;" id="upload_file_tmp"
-                           name="upload_file_tmp" placeholder="未选择任何文件  ( 点此选择文件 ) "
+                           style="width: 460px;height: 36px;margin: 2px 0px;display: inline-block;"
+                           id="upload_file_tmp"
+                           name="upload_file_tmp"
+                           placeholder="未选择任何文件  ( 点此选择文件 ) "
                            onclick="batchFile.click(); ">
                 </div>
             </div>
 
-            <input id="updateFilepathID" name="filepath" value="${filepath}" style="width: 600px;display: none;"/>
+            <input id="updateFilepathID" name="filepath" value="${filepath}"
+                   style="width: 600px;display: none;"/>
 
             <div class="modal-footer">
 
                 <div style="text-align: center">
                     <p type="text" id="baifenbi"></p>
                 </div>
-                <div class="progress progress-striped active" style="display: none">
+                <div class="progress progress-striped active"
+                     style="display: none">
                     <div id="progressBar" class="progress-bar progress-bar-info"
                          role="progressbar" aria-valuemin="0" aria-valuenow="0"
                          aria-valuemax="100" style="width: 0%">
                     </div>
                 </div>
 
-                <button id="houtaiyunxing" type="button" class="btn btn-default" data-dismiss="modal" value="">取消
+                <button id="houtaiyunxing" type="button" class="btn btn-default"
+                        data-dismiss="modal" value="">取消
                 </button>
                 <%--onclick="filesubmit()"--%>
-                <button id="batchUploadBtn" onclick="sumitbtn()" type="button" class="btn btn-primary">
+                <button id="batchUploadBtn" onclick="sumitbtn()" type="button"
+                        class="btn btn-primary">
                     开始上传
                 </button>
             </div>
@@ -262,12 +278,14 @@
     </div>
 </div>
 <!-- 新建文件夹模态框（Modal） -->
-<div class="modal fade" id="createFolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2"
+<div class="modal fade" id="createFolder" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel2"
      aria-hidden="true">
     <div class="modal-dialog" style="width: 720px;height: 250px;">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel2">
@@ -282,22 +300,27 @@
                             root/根目录
                         </c:when>
                         <c:otherwise>
-                            <input name="filepath" class="form-control" style="width: 588px;display: inline-block"
+                            <input name="filepath" class="form-control"
+                                   style="width: 588px;display: inline-block"
                                    value="${filepath}" readonly="readonly"/>
                         </c:otherwise>
                     </c:choose>
                     <br><br>
                     <div class="input-group input-group-lg">
-                        <input name="usermail" type="text" style="display: none" value="${diskuser.usermail}"/>
-                        <span class="input-group-addon" style="background-color:white;"> &nbsp;  <img
+                        <input name="usermail" type="text" style="display: none"
+                               value="${diskuser.usermail}"/>
+                        <span class="input-group-addon"
+                              style="background-color:white;"> &nbsp;  <img
                                 src="img/folder6.jpg"> &nbsp; </span>
-                        <input name="foldername" type="text" class="form-control"
+                        <input name="foldername" type="text"
+                               class="form-control"
                                placeholder="请输入新建文件夹的名字( 默认为 '新建文件夹 ' )">
                     </div>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
                     </button>
                     <button type="submit" class="btn btn-primary">
                         新建文件夹
@@ -308,24 +331,29 @@
     </div>
 </div>
 <!-- 删除文件夹模态框（Modal） -->
-<div class="modal fade" id="deleteFolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3"
+<div class="modal fade" id="deleteFolder" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel3"
      aria-hidden="true">
     <div class="modal-dialog" style="width: 760px;height: 480px;">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">
                     &times;
                 </button>
-                <h4 class="modal-title" id="myModalLabel3" style="display: inline-block;">
+                <h4 class="modal-title" id="myModalLabel3"
+                    style="display: inline-block;">
                     批量删除
                 </h4>
-                <h5 style="display:inline-block;"> ( 小提示 : 删除的文件/文件夹可以在回收站中找回 ) </h5>
+                <h5 style="display:inline-block;"> ( 小提示 : 删除的文件/文件夹可以在回收站中找回
+                    ) </h5>
             </div>
             <form action="deleteFolder" method="post">
                 <div class="modal-body">
 
                     请 选 择 你 要 删 除 的 文 件 / 文件夹 :
-                    <br><input type="text" value="${filepath}" name="filepath" style="display:none ;"/>
+                    <br><input type="text" value="${filepath}" name="filepath"
+                               style="display:none ;"/>
                     <table id="filderListTable" class="table table-hover">
                         <thead>
                         <tr>
@@ -338,7 +366,8 @@
                         <tbody>
                         <c:forEach items="${folderlist}" var="fl">
                             <tr>
-                                <td><input type="checkbox" name="deleteradio" value="${fl.folderid}"
+                                <td><input type="checkbox" name="deleteradio"
+                                           value="${fl.folderid}"
                                            onclick="deleteFolder()"></td>
                                 <td><img src=${fl.icon}> ${fl.foldername}</td>
                                 <td>${fl.sizes}</td>
@@ -350,11 +379,13 @@
                     </table>
 
 
-                    <input id="deleteradiovalue" name="deletefoldername" type="text" style="width: 700px;display: none;"
+                    <input id="deleteradiovalue" name="deletefoldername"
+                           type="text" style="width: 700px;display: none;"
                            value=""/>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
                     </button>
                     <button type="submit" class="btn btn-primary">
                         删除文件夹
@@ -367,12 +398,14 @@
 
 
 <!-- 删除一个文件模态框（Modal） -->
-<div class="modal fade" id="deleteOneFolder" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6"
+<div class="modal fade" id="deleteOneFolder" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel6"
      aria-hidden="true">
     <div class="modal-dialog" style="width: 760px;height: 180px;">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel6">
@@ -388,10 +421,12 @@
                     <%--style="width: 270px;height: 36px;margin: 2px 0px;display: inline-block;">--%>
 
                     <%--</input>--%>
-                    <input name="OnefileId" id="deleteNowFileID" value="" style="display:none;"/>
+                    <input name="OnefileId" id="deleteNowFileID" value=""
+                           style="display:none;"/>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
                     </button>
                     <button type="submit" class="btn btn-primary">
                         确认删除
@@ -404,12 +439,14 @@
 
 
 <!-- 文件夹详情( 下载 )模态框（Modal） -->
-<div class="modal fade" id="filesList" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4"
+<div class="modal fade" id="filesList" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel4"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel4">
@@ -419,14 +456,16 @@
             <form action="/downloads" method="post">
                 <div class="modal-body">
                     下 载 文 件 :
-                    <input type="text" id="currentFolder" value="我的文件夹" class="form-control"
+                    <input type="text" id="currentFolder" value="我的文件夹"
+                           class="form-control"
                            readonly="readonly"
                            style="width: 270px;height: 36px;margin: 2px 0px;display: inline-block;">
 
                     </input>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
                     </button>
                     <button type="submit" class="btn btn-primary">
                         确认下载
@@ -438,7 +477,8 @@
 </div>
 
 <!-- 文件夹详情( all下载 jilu)模态框（Modal） -->
-<div class="modal fade" id="alldownload" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="alldownload" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 780px;height: 480px;">
         <div class="modal-content">
             <div class="modal-header">
@@ -452,12 +492,14 @@
             <form action="/download" method="post">
                 <div class="modal-body">
                     <%--已选择文件 :--%>
-                    <input type="text" id="allsubmittoController" value="" class="form-control"
+                    <input type="text" id="allsubmittoController" value=""
+                           class="form-control"
                            readonly="readonly"
                            style="width: 470px;height: 36px;margin: 2px 0px;display:none">
 
                     </input>
-                    <input type="text" name="filepath" value="${filepath}" style="display: none;"/>
+                    <input type="text" name="filepath" value="${filepath}"
+                           style="display: none;"/>
                     <table id="filderListTable2" class="table table-hover">
                         <thead>
                         <tr>
@@ -472,10 +514,12 @@
                         <tbody>
                         <c:forEach items="${logsList}" var="log">
                             <tr>
-                                <td><input onclick="checkeddownloadfile()" type="checkbox"
+                                <td><input onclick="checkeddownloadfile()"
+                                           type="checkbox"
                                            name="filesList"
                                            value="${log.logid}"></td>
-                                <td><img src=${log.fileicon}> ${log.filename}</td>
+                                <td><img src=${log.fileicon}> ${log.filename}
+                                </td>
                                 <td>${log.sizes}</td>
                                 <td>${log.logtime}</td>
                                 <td>${log.logtype}</td>
@@ -488,11 +532,18 @@
                 </div>
                 <div class="modal-footer">
                     <div style="float: left;">
-                        <input type="button" value="全选" onclick="checkAllByBtn(1)" class="btn btn-sm btn-default">
-                        <input type="button" value="全部取消" onclick="checkAllByBtn(0)" class="btn btn-sm btn-default">
-                        <input type="button" value="反选" onclick="checkAllByBtn(2)" class="btn btn-sm btn-default">
+                        <input type="button" value="全选"
+                               onclick="checkAllByBtn(1)"
+                               class="btn btn-sm btn-default">
+                        <input type="button" value="全部取消"
+                               onclick="checkAllByBtn(0)"
+                               class="btn btn-sm btn-default">
+                        <input type="button" value="反选"
+                               onclick="checkAllByBtn(2)"
+                               class="btn btn-sm btn-default">
                     </div>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
                     </button>
                     <button type="submit" class="btn btn-primary">
                         保存日志到本地
@@ -505,27 +556,36 @@
 </div>
 
 <%--移动文件 模态框--%>
-<div class="modal fade" id="moveFile" tabindex="-1" role="dialog" aria-labelledby="myModalLabel7"
+<div class="modal fade" id="moveFile" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel7"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-hidden="true">
                     &times;
                 </button>
                 <h4 class="modal-title" id="myModalLabel7">
                     移动文件
                 </h4>
             </div>
-            <form action="" method="post">
+            <form action="TreeFolder" id="folderlist" method="post">
                 <div class="modal-body">
                     <ul id="browser" class="filetree treeview-famfamfam">
                         <c:forEach items="${folderlist}" var="fl">
+                            <input style="width: 500px; display:none;"
+                                   id="parent"
+                                   name="parent" value="">
+                            <input style="width: 500px; display:none;"
+                                   id="filepath"
+                                   name="filepath" value="">
                             <c:if test="${fl.filetype=='folder'}">
-                                <li onclick="TreeFolder('${fl.foldername}',this)">
+                                <li onclick="TreeFolder('${fl.foldername}','${f1.filepath}')">
                                     <span class="folder">${fl.foldername}</span>
-                                    <ul id="${fl.foldername}">
-                                        <li><span class="folder">Item 1.1</span>
+                                    <ul id="${fl.parent}">
+                                        <li>
+                                            <span class="folder">${f1.filepath}'</span>
                                         </li>
                                     </ul>
                                 </li>
@@ -534,7 +594,8 @@
                     </ul>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">取消
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">取消
                     </button>
                     <button type="submit" class="btn btn-primary">
                         确认移动
@@ -549,7 +610,8 @@
 <div id="myTabContent" class="tab-content">
     <!--主页右边部分的主要部分-->
     <div class="main-right-main tab-pane fade in active" id="allfile">
-        <table class="table table-hover" style="font-size: 14px;font-family: '微软雅黑'">
+        <table class="table table-hover"
+               style="font-size: 14px;font-family: '微软雅黑'">
             <caption>
                 全部文件 : <i id="allfilestime">今天</i>
             </caption>
@@ -562,11 +624,13 @@
                 <th>文件操作</th>
             </tr>
             </thead>
-            <form action="detailFilesList" id="detailFilesListForm" method="get">
+            <form action="detailFilesList" id="detailFilesListForm"
+                  method="get">
                 <%--<input style="display: none" name="detailFilesListName" id="detailFilesListID">--%>
                 <%--<input style="display: none" name="usermail" value="${usermail}">--%>
                 <%--<input style="width: 500px;" type="text" value="${filepath}">--%>
-                <input style="width: 500px; display:none;" id="fileid" name="fileid" value="">
+                <input style="width: 500px; display:none;" id="fileid"
+                       name="fileid" value="">
             </form>
             <tbody>
             <c:forEach items="${folderlist}" var="fl">
@@ -586,14 +650,17 @@
 
                                     <%--<td><input onclick="checkeddownloadfile()" type="checkbox" name="filesList"--%>
                                     <%--value="${fl.foldername}"></td>--%>
-                                    <td><img src=${fl.icon}> ${fl.foldername}</td>
+                                    <td><img src=${fl.icon}> ${fl.foldername}
+                                    </td>
                                 </c:otherwise>
                             </c:choose>
                             <td>${fl.sizes}</td>
                             <td>${fl.updatetime}</td>
                             <td>
-                                <button onclick="deleteone('${fl.folderid}','${fl.foldername}')" data-toggle="modal"
-                                        data-target="#deleteOneFolder" class="btn btn-sm btn-default">
+                                <button onclick="deleteone('${fl.folderid}','${fl.foldername}')"
+                                        data-toggle="modal"
+                                        data-target="#deleteOneFolder"
+                                        class="btn btn-sm btn-default">
                                     删 除
                                 </button>
 
@@ -615,13 +682,18 @@
                                 </c:choose>
 
 
-                                <button data-toggle="modal" data-target="#createFolder" type="button"
+                                <button data-toggle="modal"
+                                        data-target="#createFolder"
+                                        type="button"
                                         class="btn btn-default">
                                     重命名
                                 </button>
                                 <button onclick="moveFile()" data-toggle="modal"
-                                        data-target="#moveFile" class="btn btn-sm btn-default">移动文件
+                                        data-target="#moveFile"
+                                        class="btn btn-sm btn-default">移动文件
                                 </button>
+
+
                             </td>
                         </tr>
                     </c:when>
@@ -758,15 +830,19 @@
         text.value = id;
     }
 
-    function TreeFolder(id, th) {
+    function TreeFolder(id, path) {
         // $(this).empty();
         // th.append("<li>" + id + "</li>");
-        // thi.empty();
+        // this.empty();
+        document.getElementById('parent').value = id;
+        var fileInfos = document.getElementById("folderlist");
         var li_1 = document.createElement("li");
         li_1.setAttribute("class", "folder");
-        li_1.innerHTML = "hehehh";
+        li_1.innerHTML =path;
         document.getElementById(id).appendChild(li_1);
-        alert(id);
+        fileInfos.submit();
+        alert(id + fileInfos +path);
+
     }
 
 </script>

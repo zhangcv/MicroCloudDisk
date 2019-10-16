@@ -40,7 +40,7 @@ function checkuserMail() {
     }
 }
 
-function checkuserPhone(){
+function checkuserPhone() {
     return true;
 }
 

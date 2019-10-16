@@ -3,6 +3,7 @@ package com.microclouddisks.dao;
 import com.microclouddisks.entity.folder;
 import com.microclouddisks.entity.logs;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -44,4 +45,8 @@ public interface mainDao {
 
     //log query
     List<logs> logsQuery(@Param("usermail") String usermail);
+    //查询文件夹下
+    List<folder> TreeFolderfileparent(@Param("parent") String parent, @Param("usermail") String usermail);
+    //更新
+    int TreeFolderfileUpdate(@Param("filepath") String filepath, @Param("parent") String parent);
 }
